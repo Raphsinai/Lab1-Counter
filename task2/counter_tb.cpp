@@ -24,7 +24,7 @@ int main(int argc, char **argv, char **env) {
     top->en = 0;
     
     // run simulation for many clock cycles
-    for (i = 0; i < 300; i++) {
+    for (i = 0; i < 600; i++) {
         
         // dump vars into vcd file and toggle clock
         for (clk = 0; clk < 2; clk++) {
@@ -33,14 +33,15 @@ int main(int argc, char **argv, char **env) {
             top->eval ();
         }
         // send count value to vbd
-        vbdHex(4, (int(top->count) >> 16) & 0x0F);
-        vbdHex(3, (int(top->count) >> 8) & 0x0F);
-        vbdHex(2, (int(top->count) >> 4) & 0x0F);
-        vbdHex(1, int(top->count) & 0x0F);
+        // vbdHex(4, (int(top->count) >> 16) & 0x0F);
+        // vbdHex(3, (int(top->count) >> 8) & 0x0F);
+        // vbdHex(2, (int(top->count) >> 4) & 0x0F);
+        // vbdHex(1, int(top->count) & 0x0F);
+        vbdPlot(int(top->count), 0, 255);
         vbdCycle(i+1);
 
         top->rst = (i < 2);
-        top->en = (i > 4) & (i < 14) | (i > 15);
+        top->en = vbdFlag();
         if (Verilated::gotFinish()) exit(0);
     }
     vbdClose();
