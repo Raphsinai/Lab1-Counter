@@ -71,7 +71,6 @@ VL_ATTR_COLD void Vcounter___024root___ctor_var_reset(Vcounter___024root* vlSelf
     vlSelf->rst = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 18209466448985614591ull);
     vlSelf->en = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 7710216835639188562ull);
     vlSelf->ld = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 8704649721107697142ull);
-    vlSelf->v = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 260667111241363922ull);
     vlSelf->count = VL_SCOPED_RAND_RESET_I(8, __VscopeHash, 10730142128712957955ull);
     vlSelf->__Vtrigprevexpr___TOP__clk__0 = VL_SCOPED_RAND_RESET_I(1, __VscopeHash, 9526919608049418986ull);
 }

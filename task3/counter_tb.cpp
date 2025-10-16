@@ -17,13 +17,14 @@ int main(int argc, char **argv, char **env) {
 
     if (vbdOpen() != 1) return -1;
     vbdHeader("Lab1: Counter");
+    vbdSetMode(1);
 
     // initialise simulation inputs
     top->clk = 1;
     top->rst = 1;
     top->en = 0;
     top->ld = 0;
-    top->v = 0;
+    // top->v = 0;
     
     // run simulation for many clock cycles
     for (i = 0; i < 600; i++) {
@@ -43,8 +44,8 @@ int main(int argc, char **argv, char **env) {
         vbdCycle(i+1);
 
         top->rst = (i < 2);
-        top->v = vbdValue();
-        top->en = !vbdFlag();
+        // top->v = vbdValue();
+        top->en = (i > 4);
         top->ld = vbdFlag();
         if (Verilated::gotFinish()) exit(0);
     }

@@ -27,11 +27,17 @@ VL_INLINE_OPT void Vcounter___024root___nba_sequent__TOP__0(Vcounter___024root* 
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vcounter___024root___nba_sequent__TOP__0\n"); );
     Vcounter__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     auto& vlSelfRef = std::ref(*vlSelf).get();
+    // Init
+    CData/*7:0*/ __Vdly__count;
+    __Vdly__count = 0;
     // Body
-    vlSelfRef.count = ((IData)(vlSelfRef.rst) ? 0U : 
-                       (0xffU & ((IData)(vlSelfRef.ld)
-                                  ? (IData)(vlSelfRef.v)
-                                  : ((IData)(1U) + (IData)(vlSelfRef.count)))));
+    __Vdly__count = vlSelfRef.count;
+    if (vlSelfRef.rst) {
+        __Vdly__count = 0U;
+    } else if (vlSelfRef.ld) {
+        __Vdly__count = (0xffU & ((IData)(1U) + (IData)(vlSelfRef.count)));
+    }
+    vlSelfRef.count = __Vdly__count;
 }
 
 void Vcounter___024root___eval_triggers__act(Vcounter___024root* vlSelf);

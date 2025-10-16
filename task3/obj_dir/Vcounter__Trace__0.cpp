@@ -27,8 +27,7 @@ void Vcounter___024root__trace_chg_0_sub_0(Vcounter___024root* vlSelf, Verilated
     bufp->chgBit(oldp+1,(vlSelfRef.rst));
     bufp->chgBit(oldp+2,(vlSelfRef.en));
     bufp->chgBit(oldp+3,(vlSelfRef.ld));
-    bufp->chgCData(oldp+4,(vlSelfRef.v),8);
-    bufp->chgCData(oldp+5,(vlSelfRef.count),8);
+    bufp->chgCData(oldp+4,(vlSelfRef.count),8);
 }
 
 void Vcounter___024root__trace_cleanup(void* voidSelf, VerilatedVcd* /*unused*/) {
